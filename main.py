@@ -13,7 +13,7 @@ def voice_to_str_handle(client, message):
     if message.reply_to_message.voice:
         client.download_media(message.reply_to_message, file_name='voice.ogg')
         voice_text = tools.voice_to_str()
-        client.send_message(message.chat.id, ' """Текст"": ' + voice_text)
+        client.send_message(message.chat.id, ' **Текст**: ' + voice_text)
     else:
         client.send_message(message.chat.id, 'Голосовое сообщение не найдено.')
 
