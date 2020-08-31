@@ -10,8 +10,6 @@ app = Client(session_name='session', api_hash=api_hash, api_id=api_id)
 
 @app.on_message(filters.me & filters.reply & filters.command('voice_to_str'))
 def voice_to_str_handle(client, message):
-    print(message)
-    print(message.reply_to_message.voice)
     if message.reply_to_message.voice:
         client.download_media(message.reply_to_message, file_name='voice.ogg')
         voice_text = tools.voice_to_str()
