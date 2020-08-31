@@ -17,6 +17,9 @@ def voice_to_str(voice_path='downloads/voice.ogg'):
     r = sr.Recognizer()
     with sr.WavFile("new_voice.wav") as source:  # use "test.wav" as the audio source
         audio = r.record(source)
-        return r.recognize_google(audio, language='ru')
+        try:
+            return r.recognize_google(audio, language='ru')
+        except:
+            return 'Нихуя не понял, но было очень интересно.'
 
 
